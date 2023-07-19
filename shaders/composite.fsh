@@ -3,6 +3,10 @@
 
 uniform sampler2D colortex0;
 
+// Get the screen width and height
+uniform float screenWidth;
+uniform float screenHeight;
+
 in vec2 texcoord;
 
 /* DRAWBUFFERS:0 */
