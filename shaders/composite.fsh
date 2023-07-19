@@ -4,8 +4,8 @@
 uniform sampler2D colortex0;
 
 // Get the screen width and height
-uniform float screenWidth;
-uniform float screenHeight;
+uniform float viewWidth;
+uniform float viewHeight;
 
 in vec2 texcoord;
 
@@ -14,16 +14,30 @@ layout(location = 0) out vec4 colortex0Out;
 
 void main() {
 	// Put screen resolution in a vector
-	vec2 resolution = vec2(screenWidth, screenHeight);
+	vec2 resolution = vec2(viewWidth, viewHeight);
 
-	// Normalized pixel coordinates:
-	vec2 uv = texcoord / resolution.xy;
-	// Put origin in the center
-	uv -= .5;
-	// Normalize
-	uv.x *= resolution.x / resolution.y;
+	// Letterbox ratio:
+	float ratioX = 21;
+	float ratioY = 9;
+	// Pixel height of letterbox
+	float letterBoxHeight = ((resolution.x / ratioX) * ratioY) - resolution.y;
+	// Normalize letterBoxHeight
+	if (letterBoxHeight > 1) {
+		// For screens wider than 21:9
+		letterBoxHeight = 0;
+	}
+	else {
+		letterBoxHeight = abs(letterBoxHeight / resolution.y);
+	}
 
 	vec3 color = texture(colortex0, texcoord).rgb;
+
+	// if the y value is farther away from the center than 1 - letterBoxHeight 
+	// (divided by two because there are two letterboxes)
+	if (abs(texcoord.y - .5) > (1 - letterBoxHeight) / 2) {
+	 	color = vec3(0, 0, 0);
+	}
+
 
 	//vec3 color = vec3(texcoord.x, texcoord.y, 0);
 
