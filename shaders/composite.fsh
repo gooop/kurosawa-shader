@@ -30,16 +30,18 @@ void main() {
 		letterBoxHeight = abs(letterBoxHeight / resolution.y);
 	}
 
-	vec3 color = texture(colortex0, texcoord).rgb;
+	vec4 color = texture2D(colortex0, texcoord.xy);
 
 	// if the y value is farther away from the center than 1 - letterBoxHeight 
 	// (divided by two because there are two letterboxes)
 	if (abs(texcoord.y - .5) > (1 - letterBoxHeight) / 2) {
-	 	color = vec3(0, 0, 0);
+	 	color = vec4(0, 0, 0, 1);
 	}
 
+	float grayScale = dot(color.rgb, vec3(.1, .35, .6));
 
-	//vec3 color = vec3(texcoord.x, texcoord.y, 0);
+	color = vec4(grayScale, grayScale, grayScale, color.a);
 
-	colortex0Out = vec4(color, 1.0);
+	// colortex0Out = vec4(color, 1);
+	colortex0Out = color;
 }
