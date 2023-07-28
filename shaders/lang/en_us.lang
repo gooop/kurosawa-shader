@@ -3,11 +3,22 @@
 # Screens
 screen.POSTPROCESSING=Post-Processing
 screen.POSTPROCESSING.comment=Post processing settings
+screen.GRAYSCALE_COLOR_FILTER=Grayscale Color Filter
+screen.GRAYSCALE_COLOR_FILTER.comment=Adjust color balance of grayscal filter. This can change the look of the filter and bring out contrast in things that are red/green/blue.
 
 # Options
 option.FILMGRAIN=Film Grain
 option.FILMGRAIN.comment=Amount of film grain to display
-value.FILMGRAIN.0.075=Default
+value.FILMGRAIN.0.075=Default (0.075)
 value.FILMGRAIN.1=Slenderman
 option.LETTERBOX=Letterbox
 option.LETTERBOX.comment=Turns letterboxing (black bars) on or off
+option.RED=Red
+option.RED.comment=Red value
+value.RED.0.1=Default (0.1)
+option.GREEN=Green
+option.GREEN.comment=Green value
+value.GREEN.0.35=Default (0.35)
+option.BLUE=Blue
+option.BLUE.comment=Blue value
+value.BLUE.0.6=Default (0.6)

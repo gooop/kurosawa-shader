@@ -13,8 +13,11 @@ uniform float viewHeight;
 uniform float frameTimeCounter;
 
 // Macros
-#define FILMGRAIN 0.075   // Film grain levels [0 0.025 .05 .075 .1 .125 .15 1]
-#define LETTERBOX
+#define FILMGRAIN 0.075   	// Film grain levels [0 0.025 0.05 0.075 0.1 0.125 0.15 1]
+#define LETTERBOX			// Turn letterboxing on or off
+#define RED 0.1				// Values for grayscale color filter [0 0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 0.95 1]
+#define GREEN 0.35			// [0 0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 0.95 1]
+#define BLUE 0.6 			// [0 0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 0.95 1]
 
 in vec2 texcoord;
 
@@ -61,7 +64,7 @@ void main() {
 	// * Grayscale
 	// The values in the vec3 essentially apply a color filter.
 	// Hardcoded for now
-	float grayScale = dot(color.rgb, vec3(.1, .35, .6));
+	float grayScale = dot(color.rgb, vec3(RED, GREEN, BLUE));
 
 	color = vec4(grayScale, grayScale, grayScale, color.a);
 
