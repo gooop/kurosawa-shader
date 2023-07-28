@@ -36,7 +36,7 @@ void main() {
 	// * Film Grain
 	float toRadians = 3.14159 / 180;
 	float amount = 0.075;
-	float randomIntensity = fract(10000 * sin(((texcoord.x + texcoord.y) * (frameTimeCounter * 10)) * toRadians));
+	float randomIntensity = fract(10000 * sin(((texcoord.x + texcoord.y) * (frameTimeCounter * 100)) * toRadians));
 	amount *= randomIntensity;
 
 	color += amount;
