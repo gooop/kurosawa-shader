@@ -1,0 +1,5 @@
+#shaders/lang/en_us.lang
+
+# Screens
+screen.POSTPROCESSING=Post-Processing
+screen.POSTPROCESSING.comment=Post processing settings
