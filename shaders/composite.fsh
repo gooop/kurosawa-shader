@@ -9,7 +9,8 @@ uniform float viewHeight;
 uniform float frameTimeCounter;
 
 // Macros
-#define FILMGRAIN 0.075   // Shadow darkness levels [0 0.025 .05 .075 1 1.25 1.5]
+#define FILMGRAIN 0.075   // Shadow darkness levels [0 0.025 .05 .075 .1 .125 .15 1]
+#define LETTERBOX
 
 in vec2 texcoord;
 
@@ -45,12 +46,13 @@ void main() {
 
 
 	// * Letterboxing
-	// if the y value is farther away from the center than 1 - letterBoxHeight 
-	// (divided by two because there are two letterboxes)
-	if (abs(texcoord.y - .5) > (1 - letterBoxHeight) / 2) {
-	 	color = vec4(0, 0, 0, 1);
-	}
-
+	#ifdef LETTERBOX
+		// if the y value is farther away from the center than 1 - letterBoxHeight 
+		// (divided by two because there are two letterboxes)
+		if (abs(texcoord.y - .5) > (1 - letterBoxHeight) / 2) {
+			color = vec4(0, 0, 0, 1);
+		}
+	#endif
 	
 	// * Grayscale
 	// The values in the vec3 essentially apply a color filter.
