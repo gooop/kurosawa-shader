@@ -1,3 +1,7 @@
+/*
+Written by Gavin Castaneda © 2023 MIT License (see LICENSE file)
+*/
+
 #version 150
 #extension GL_ARB_explicit_attrib_location : enable
 
@@ -9,7 +13,7 @@ uniform float viewHeight;
 uniform float frameTimeCounter;
 
 // Macros
-#define FILMGRAIN 0.075   // Shadow darkness levels [0 0.025 .05 .075 .1 .125 .15 1]
+#define FILMGRAIN 0.075   // Film grain levels [0 0.025 .05 .075 .1 .125 .15 1]
 #define LETTERBOX
 
 in vec2 texcoord;
