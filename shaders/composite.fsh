@@ -8,6 +8,9 @@ uniform float viewWidth;
 uniform float viewHeight;
 uniform float frameTimeCounter;
 
+// Macros
+#define FILMGRAIN 0.075   // Shadow darkness levels [0 0.025 .05 .075 1 1.25 1.5]
+
 in vec2 texcoord;
 
 /* DRAWBUFFERS:0 */
@@ -35,10 +38,9 @@ void main() {
 
 	// * Film Grain
 	float toRadians = 3.14159 / 180;
-	float amount = 0.075;
+	float amount = FILMGRAIN;
 	float randomIntensity = fract(10000 * sin(((texcoord.x + texcoord.y) * (frameTimeCounter * 100)) * toRadians));
 	amount *= randomIntensity;
-
 	color += amount;
 
 
