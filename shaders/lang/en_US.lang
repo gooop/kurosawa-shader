@@ -3,3 +3,7 @@
 # Screens
 screen.POSTPROCESSING=Post-Processing
 screen.POSTPROCESSING.comment=Post processing settings
+
+# Options
+option.FILMGRAIN=Film Grain
+option.FILMGRAIN.comment=Amount of film grain to display
