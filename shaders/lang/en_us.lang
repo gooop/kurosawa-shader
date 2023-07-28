@@ -8,5 +8,6 @@ screen.POSTPROCESSING.comment=Post processing settings
 option.FILMGRAIN=Film Grain
 option.FILMGRAIN.comment=Amount of film grain to display
 value.FILMGRAIN.0.075=Default
+value.FILMGRAIN.1=Slenderman
 option.LETTERBOX=Letterbox
 option.LETTERBOX.comment=Turns letterboxing (black bars) on or off
