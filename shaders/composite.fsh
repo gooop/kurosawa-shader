@@ -1,5 +1,9 @@
 /*
-Written by Gavin Castaneda © 2023 MIT License (see LICENSE file)
+* Desc: First pass fragment shader.
+* 	- Responsibilities:
+* 		- Grayscale (and gs color balance)
+*       - Film Grain
+*       - Letterbox Effect
 */
 
 #version 150
@@ -70,3 +74,7 @@ void main() {
 
 	colortex0Out = color;
 }
+
+/*
+* Written by Gavin Castaneda © 2023 MIT License (see LICENSE file)
+*/
