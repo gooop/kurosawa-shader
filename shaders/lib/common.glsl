@@ -5,6 +5,7 @@
 * 		    - ACESFilm function
 */
 
+// From: https://knarkowicz.wordpress.com/2016/01/06/aces-filmic-tone-mapping-curve/
 float ACESFilm(float x) {
     float a = 2.51;
     float b = 0.03;
