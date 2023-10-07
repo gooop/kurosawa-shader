@@ -12,7 +12,7 @@ uniform sampler2D colortex0;
 in vec2 texCoord;
 
 void main() {
-    // Take color
+    // Assign screen space coordinates to colortex0
     vec3 color = texture2D(colortex0, texCoord).rgb;
 
 

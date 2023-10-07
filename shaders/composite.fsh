@@ -43,6 +43,7 @@ void main() {
 		letterBoxHeight = abs(letterBoxHeight / resolution.y);
 	}
 
+	// Assign screen space coordinates to colortex0
 	vec4 color = texture2D(colortex0, texCoord.xy);
 
 	// * Film Grain
