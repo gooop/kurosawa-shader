@@ -14,7 +14,7 @@
 uniform sampler2D colortex0;
 
 // Macros
-#define TONECURVE 1     // Turn tone curve on or off
+#define TONECURVE       // Turn tone curve on or off
 
 // Inputs
 in vec2 texCoord;
@@ -23,7 +23,12 @@ void main() {
     // Assign screen space coordinates to colortex0
     vec3 color = texture2D(colortex0, texCoord).rgb;
 
-
+    #ifdef TONECURVE
+        // ACES tonemap the color
+        color.r = ACESFilm(color.r);
+        color.g = ACESFilm(color.g);
+        color.b = ACESFilm(color.b);
+    #endif
 
     gl_FragData[0] = vec4(color, 1);
 }

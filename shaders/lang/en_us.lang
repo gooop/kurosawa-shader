@@ -4,7 +4,7 @@
 screen.POSTPROCESSING=Post-Processing
 screen.POSTPROCESSING.comment=Post processing settings
 screen.GRAYSCALE_COLOR_FILTER=Grayscale Color Filter
-screen.GRAYSCALE_COLOR_FILTER.comment=Adjust color balance of grayscal filter. This can change the look of the filter and bring out contrast in things that are red/green/blue.
+screen.GRAYSCALE_COLOR_FILTER.comment=Adjust color balance of grayscale filter. This can change the look of the filter and bring out contrast in things that are red/green/blue.
 
 # Options
 option.FILMGRAIN=Film Grain
@@ -22,3 +22,5 @@ value.GREEN.0.35=Default (0.35)
 option.BLUE=Blue
 option.BLUE.comment=Blue value
 value.BLUE.0.6=Default (0.6)
+option.TONECURVE=Tone Curve
+option.TONECURVE.comment=Turns ACES tone curve on or off
