@@ -23,10 +23,7 @@ uniform float frameTimeCounter;
 #define GREEN 0.35			// [0 0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 0.95 1]
 #define BLUE 0.6 			// [0 0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 0.95 1]
 
-in vec2 texcoord;
-
-/* DRAWBUFFERS:0 */
-layout(location = 0) out vec4 colortex0Out;
+in vec2 texCoord;
 
 void main() {
 	// Put screen resolution in a vector
@@ -46,12 +43,12 @@ void main() {
 		letterBoxHeight = abs(letterBoxHeight / resolution.y);
 	}
 
-	vec4 color = texture2D(colortex0, texcoord.xy);
+	vec4 color = texture2D(colortex0, texCoord.xy);
 
 	// * Film Grain
 	float toRadians = 3.14159 / 180;
 	float amount = FILMGRAIN;
-	float randomIntensity = fract(10000 * sin(((texcoord.x + texcoord.y) * (frameTimeCounter * 100)) * toRadians));
+	float randomIntensity = fract(10000 * sin(((texCoord.x + texCoord.y) * (frameTimeCounter * 100)) * toRadians));
 	amount *= randomIntensity;
 	color += amount;
 
@@ -60,7 +57,7 @@ void main() {
 	#ifdef LETTERBOX
 		// if the y value is farther away from the center than 1 - letterBoxHeight 
 		// (divided by two because there are two letterboxes)
-		if (abs(texcoord.y - .5) > (1 - letterBoxHeight) / 2) {
+		if (abs(texCoord.y - .5) > (1 - letterBoxHeight) / 2) {
 			color = vec4(0, 0, 0, 1);
 		}
 	#endif
@@ -72,7 +69,7 @@ void main() {
 
 	color = vec4(grayScale, grayScale, grayScale, color.a);
 
-	colortex0Out = color;
+	gl_FragData[0] = color;
 }
 
 /*
