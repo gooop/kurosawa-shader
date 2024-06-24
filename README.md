@@ -1,5 +1,5 @@
 # kurosawa-shader
-A kurosawa-style shader for Minecraft. Currently only a fragement shader that does postprocessing.
+A kurosawa-style shader for Minecraft. Currently a fragement shader that does postprocessing.
 
 ## Post-Processing
 * Letterboxing (toggleable)
